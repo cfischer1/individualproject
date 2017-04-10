@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      JavaScript 6th Edition  v 1.16
+     
+
+      Individual Project Template
+  
+      Author: 
+      Date:   
+
+      Filename: page 2.html
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=0">
+   <title>Individual Student Project Template 1</title>
+   <link rel="stylesheet" media="screen and (max-device-width: 999px)" href="project.css" />
+   <link rel="stylesheet" media="screen and (min-device-width: 1000px)" href="project.css" />
+
+   <link href="https://fonts.googleapis.com/css?family=Sansita" rel="stylesheet" type="text/css">
+   <script src="modernizr.custom.05819.js"></script>
+</head>
+
+<body>
+   <div id="container">
+      <header>
+         <h1>
+            <img src="https://cdn.gomix.com/749966c4-b208-4dc0-b6db-37f150812d3a%2Fperu_cnt_9nov09_istock_b.jpg" width="320" height="270" alt="INFO 301 - Student Project" title="Divine Destinations" />
+    
+              </h1>
+      </header>
+
+      <nav>
+         <ul>
+           
+            <li id="index.html"><a href="/index.html">Home</a></li>
+            <li id="page2.html"><a href="/page2.html">Destinations</a></li>
+            <li id="page3.html"><a href="/page3.html">Travel Packages</a></li>
+            <li id="currentpage"><a href="#">Travel Necessities</a></li>
+            <li id="page5.html"><a href="/page5.html">Contact Us</a></li>
+            <li id="page6.html"><a href="/page6.html">About</a></li>
+        </ul>
+      </nav>
+  <article> 
+      <center><h2>  <!--center tag to center title -->
+         About Our Travel Necessities
+        </h2></center>
+     <center><p1>Don't travel unprepared! Get your travel necessities here! Divine Destinations offers a Luggage Set, Carry On, Toiletries Kit, Neck Pillow, and GoPro.
+       Each item is high quality and sold for great prices. If you don't see something you need, contact us and we'll see what we can do!</p1></center>       
+    
+     
+      <br><h3>
+    Item #1: Luggage Set~</h3><br/>    <!--inserted breaks to make the layout look nicer-->
+    <p1> This luggage set comes with 3 different pieces in black. The smallest piece is, the medium piece is, and the largest piece is.
+    </p1><br/>
+     
+    <br><h4>
+    Item #2: Carry On~</h4><br/>
+    <p1>Travel with ease with this Divine Destination Carry On! It is perfect size to fit all of your travel essentials. It easy to pick up and carry or easy to roll. </p1>
+     <br/>
+     
+    <br><h5>
+    Item #3: Toiletries Kit~</h5><br/>
+    <p1>In our Toiletries kit we include: a first aid kit, razor, body wash, shampoo and conditioner, toothbrush, toothpaste, comb, and small wash cloth.</p1> 
+    <br/>
+     
+   <br><h6>
+    Item #4: Neck Pillow~</h6><br/>
+    <p1>Depending on where you are traveling it may take hours! So make sure you are prepared to travel comfortably. This neck pillow is comfortable and soft, and sold for a great price!</p1><br/>
+    
+    <br><h7>
+      Item #5: GoPro~</h7><br/>
+  <p1>Document all of your travel adventures with a GoPro! GoPros have the ability to film and take pictures, and are great quality!</p1>
+      
+        
+     </article>
+     
+     
+      <article>
+         <h2>Order Your Travel Necessities</h2><br/>         <!-- insert checkbox item form for products -->
+      <form>
+         <input type="checkbox" id="item1" value="250" />
+         <label for="item1">Luggage Set ($250.00)</label><br/>  <!--inserted breaks to space out labels-->
+         <input type="checkbox" id="item2" value="55" />
+         <label for="item2">Carry On ($55.00)</label><br/>
+         <input type="checkbox" id="item3" value="25" />
+         <label for="item3">Toiletries Kit ($25.00)</label><br/>
+         <input type="checkbox" id="item4" value="13" />
+         <label for="item4">Neck Pillow ($13.00)</label><br/>
+         <input type="checkbox" id="item5" value="200" />
+         <label for="item5">GoPro ($200.00)</label><br/>
+         <input type="button" id="sButton" value="Submit"/>
+      </form>
+      <div>
+        <p id="total"></p>
+        </div>
+      
+      </article>
+     
+     <script> 
+       // array storing products "travel necessities" to show
+     var products = ["Luggage Set ($250.00)", "Carry On ($55.00)", "Toiletries Kit ($25.00)", "Neck Pillow ($13.00)", "GoPro ($200.00)" ];
+       //matiching array of the label elements
+       var labels = document.getElementsByTagName("label");
+       
+       function processProducts(){             //function generates list from array
+         for (var i = 0; i<5; i++) {
+           labels[i].innerHTML = products[i];
+         }
+       }
+       
+       if (window.addEventListener) {
+         window.addEventListener("load", processProducts, false);
+       } else if(window.attachEvent) {
+         window.attachEvent("onload", processProducts);
+       }
+       
+       // funciton to add values of selected check boxes and display total
+       
+       function calcTotal() {
+         
+         var itemTotal = 0;
+         var salesTaxRate = .06; //stores the current sales tax
+         var items = document.getElementsByTagName("input");
+         for (var i = 0; i<5; i++) {
+           if (items[i].checked)  {
+             itemTotal += (items[i].value * 1);
+           }
+         }
+         itemTotal *= 1+ salesTaxRate; //notice the use of teh compound operator here
+         document.getElementById("total").innerHTML = "Your order total is $" + itemTotal.toFixed(2);
+       }
+     
+       //add backward compatible event listener to Submit button
+       var submitButton = document.getElementById("sButton");
+       if (submitButton.addEventListener) {
+         submitButton.addEventListener("click", calcTotal, false);
+       } else if (submitButton.attachEvent)  {
+         submitButton.attachEvent("onclick", calcTotal);
+       }
+     
+     </script>
+      
+    <footer>
+         <p>Divine Destinations &bull; Salisbury, Maryland </p>
+      </footer>
+   
+  <script src="script.js"></script>      <!-- Need <script> tag to insert input checkbox -->
+     </div>
+       </body>
+</html>
